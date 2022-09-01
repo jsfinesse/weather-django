@@ -1,7 +1,17 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-<h1>Hello World!!!</h1>
-
+    <div class="jumbotron {{ category_color }}">
+        <h1 class="display-4">Air Quality Index</h1>
+        <p class="lead">{{ res.list.0.main.aqi }}</p>
+        <p>{{ category_description }}</p>
+        <hr class="my-4" />
+    </div>
+    <br />
+    {% if res %}
+        {% if res == "Error..." %}
+            There was an error, please try again.
+        {% else %}
+            {{ res }}
+        {% endif %}
+    {% endif %}
 {% endblock %}
